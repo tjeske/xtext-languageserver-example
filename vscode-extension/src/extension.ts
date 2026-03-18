@@ -9,9 +9,9 @@ import { LanguageClient, LanguageClientOptions, StreamInfo, Position as LSPositi
 let lc: LanguageClient;
 
 export function activate(context: ExtensionContext) {
-    // The server is a started as a separate app and listens on port 5007
+    // The server is a started as a separate app and listens on port 5008
     let connectionInfo = {
-        port: 5007
+        port: 5008
     };
     let serverOptions = () => {
         // Connect to language server via socket
@@ -32,19 +32,6 @@ export function activate(context: ExtensionContext) {
     
     // Create the language client and start the client.
     lc = new LanguageClient('Xtext Server', serverOptions, clientOptions);
-
-    var disposable2 =commands.registerCommand("mydsl.a.proxy", async () => {
-        let activeEditor = window.activeTextEditor;
-        if (!activeEditor || !activeEditor.document || activeEditor.document.languageId !== 'mydsl') {
-            return;
-        }
-
-        if (activeEditor.document.uri instanceof Uri) {
-            commands.executeCommand("mydsl.a", activeEditor.document.uri.toString());
-        }
-    })
-
-    context.subscriptions.push(disposable2);
 
     // enable tracing (.Off, .Messages, Verbose)
     lc.setTrace(Trace.Verbose);

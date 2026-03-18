@@ -27,30 +27,9 @@
         "languages": [
             {
                 "id": "mydsl",
-                "aliases": [
-                    "mydsl"
-                ],
                 "extensions": [
                     ".mydsl"
-                ],
-                "configuration": "./mydsl.configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "mydsl",
-                "scopeName": "text.mydsl",
-                "path": "./syntaxes/mydsl.tmLanguage.json"
-            }
-        ],
-        "commands": [
-            {
-                "command": "mydsl.a.proxy",
-                "title": "MyDsl Command A"
-            },
-            {
-                "command": "mydsl.b",
-                "title": "MyDsl Command B"
+                ]
             }
         ]
     },
